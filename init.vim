@@ -59,6 +59,9 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'sudar/vim-arduino-syntax'
 Plug 'sudar/vim-arduino-snippets'
 
+"discord
+Plug 'vbe0201/vimdiscord'
+
 
 call plug#end()
 
