@@ -60,8 +60,7 @@ Plug 'sudar/vim-arduino-syntax'
 Plug 'sudar/vim-arduino-snippets'
 
 "discord
-Plug 'vbe0201/vimdiscord'
-
+Plug 'hugolgst/vimsence'
 
 call plug#end()
 
@@ -102,7 +101,7 @@ if executable('rg')
   let g:closetag_shortcut = '>'
   let g:closetag_close_shortcut = '<leader>>'
 
-
+  
   " ultisnips
   let g:UltiSnipsExpandTrigger = '<f5>' 
   "set filetype arduino
