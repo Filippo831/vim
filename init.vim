@@ -132,3 +132,4 @@ if executable('rg')
 
   "copy on clipboard
   noremap <C-c> "+yy"
+
