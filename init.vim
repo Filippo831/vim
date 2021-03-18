@@ -59,6 +59,8 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'sudar/vim-arduino-syntax'
 Plug 'sudar/vim-arduino-snippets'
 
+"flutter
+Plug 'dart-lang/dart-vim-plugin'
 
 call plug#end()
 
@@ -132,4 +134,5 @@ if executable('rg')
 
   "copy on clipboard
   noremap <C-c> "+yy"
+
 
