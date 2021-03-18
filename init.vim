@@ -61,6 +61,8 @@ Plug 'sudar/vim-arduino-snippets'
 
 "flutter
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc-dart'
+Plug 'natebosch/vim-lsc'
 
 call plug#end()
 
