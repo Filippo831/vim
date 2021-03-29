@@ -36,7 +36,7 @@ Plug 'lyuts/vim-rtags'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic' //has problem on flutter
 Plug 'puremourning/vimspector'
 Plug 'jiangmiao/auto-pairs'
 
@@ -61,8 +61,9 @@ Plug 'sudar/vim-arduino-snippets'
 
 "flutter
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'natebosch/vim-lsc-dart'
-Plug 'natebosch/vim-lsc'
+"Plug 'thosakwe/vim-flutter'
+"Plug 'natebosch/vim-lsc-dart'
+"Plug 'natebosch/vim-lsc'
 
 call plug#end()
 
@@ -103,6 +104,7 @@ if executable('rg')
   let g:closetag_shortcut = '>'
   let g:closetag_close_shortcut = '<leader>>'
 
+  let g:lsc_auto_map = v:true
   
   " ultisnips
   let g:UltiSnipsExpandTrigger = '<f5>' 
@@ -124,7 +126,6 @@ if executable('rg')
   nnoremap <silent> <Leader>- :vertical resize -5<CR>
   nnoremap <Leader>p :Files<CR>
   nnoremap <silent> <C-l> :nohl<CR><C-l>
-  let g:lsc_auto_map = v:true
 
 
   inoremap <C-l> <C-t> 
@@ -137,4 +138,12 @@ if executable('rg')
   "copy on clipboard
   noremap <C-c> "+yy"
 
-
+  "flutter
+  let g:dart_format_on_save = 0
+  xmap <leader>a  <Plug>(coc-codeaction-selected)
+  nmap <leader>a  <Plug>(coc-codeaction-selected)
+  nnoremap <leader>fa :FlutterRun<cr>
+  nnoremap <leader>fq :FlutterQuit<cr>
+  nnoremap <leader>fr :FlutterHotReload<cr>
+  nnoremap <leader>fR :FlutterHotRestart<cr>
+  nnoremap <leader>fD :FlutterVisualDebug<cr>
