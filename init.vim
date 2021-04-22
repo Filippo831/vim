@@ -65,6 +65,9 @@ Plug 'dart-lang/dart-vim-plugin'
 "Plug 'natebosch/vim-lsc-dart'
 "Plug 'natebosch/vim-lsc'
 
+"screenshot
+Plug 'jmckiern/vim-shoot', {'do': '\"./install.py\" geckodriver'}
+
 call plug#end()
 
 " --------- Plugins configuration ----------
@@ -142,8 +145,7 @@ if executable('rg')
   let g:dart_format_on_save = 0
   xmap <leader>a  <Plug>(coc-codeaction-selected)
   nmap <leader>a  <Plug>(coc-codeaction-selected)
-  nnoremap <leader>fa :FlutterRun<cr>
-  nnoremap <leader>fq :FlutterQuit<cr>
-  nnoremap <leader>fr :FlutterHotReload<cr>
-  nnoremap <leader>fR :FlutterHotRestart<cr>
-  nnoremap <leader>fD :FlutterVisualDebug<cr>
+  nnoremap <leader>fa :CocCommand flutter.run<cr>
+  nnoremap <leader>fq :CocCommand flutter.dev.quit<cr>
+  nnoremap <leader>fr :CocCommand flutter.dev.hotReload<cr>
+  nnoremap <leader>fR :CocCommand flutter.dev.hotRestart<cr>
