@@ -68,6 +68,9 @@ Plug 'dart-lang/dart-vim-plugin'
 "screenshot
 Plug 'jmckiern/vim-shoot', {'do': '\"./install.py\" geckodriver'}
 
+"live webdev
+Plug 'turbio/bracey.vim'
+
 call plug#end()
 
 " --------- Plugins configuration ----------
