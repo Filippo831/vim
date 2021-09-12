@@ -166,3 +166,4 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Run coc-explorer
 nmap <space>e :CocCommand explorer<CR>
+

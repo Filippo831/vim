@@ -31,49 +31,58 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'neoclide/coc.nvim'
 Plug 'mbbill/undotree'
-Plug 'sheerun/vim-polyglot'
-Plug 'lyuts/vim-rtags'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"Plug 'sheerun/vim-polyglot'
+"Plug 'lyuts/vim-rtags'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 "Plug 'vim-syntastic/syntastic' //has problem on flutter
 Plug 'puremourning/vimspector'
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'szw/vim-maximizer'
+
+Plug 'tweekmonster/startuptime.vim'
+
 "javascript html
-Plug 'pangloss/vim-javascript'
-Plug 'MaxMEllon/vim-jsx-pretty'
+"Plug 'pangloss/vim-javascript'
+"Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'alvan/vim-closetag'
 
 "snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 
 "icons
 Plug 'ryanoasis/vim-devicons'
 
 "firenvim
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+"Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 "arduino
-Plug 'sudar/vim-arduino-syntax'
-Plug 'sudar/vim-arduino-snippets'
+"Plug 'sudar/vim-arduino-syntax'
+"Plug 'sudar/vim-arduino-snippets'
 
 "flutter
 Plug 'dart-lang/dart-vim-plugin'
 "Plug 'thosakwe/vim-flutter'
-"Plug 'natebosch/vim-lsc-dart'
-"Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+Plug 'natebosch/vim-lsc'
 
 "screenshot
 Plug 'jmckiern/vim-shoot', {'do': '\"./install.py\" geckodriver'}
 
 "live webdev
-Plug 'turbio/bracey.vim'
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 
 call plug#end()
 
 " --------- Plugins configuration ----------
+
 
 " configuration
 if executable('rg')
@@ -99,9 +108,9 @@ if executable('rg')
  
  " html Plug
   let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-  let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-  let g:closetag_filetypes = 'html,xhtml,phtml,jsx,javascript'
-  let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+  let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*tsx'
+  let g:closetag_filetypes = 'html,xhtml,phtml,jsx,javascript,typescript,typescriptreact'
+  let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
   let g:closetag_emptyTags_caseSensitive = 1
   let g:closetag_regions = {
       \ 'typescript.tsx': 'jsxRegion,tsxRegion',
@@ -114,6 +123,8 @@ if executable('rg')
   
   " ultisnips
   let g:UltiSnipsExpandTrigger = '<f5>' 
+  let g:lsc_auto_map = v:true
+  let g:lsc_server_commands = {'dart': 'dart_language_server'}
   "set filetype arduino
   au BufRead,BufNewFile *.pde set filetype=arduino
   au BufRead,BufNewFile *.ino set filetype=arduino
@@ -121,6 +132,10 @@ if executable('rg')
   " --------- Key configuration ----------
   source $HOME/.config/nvim/plug-config/coc.vim
   source $HOME/.config/nvim/plug-config/airline.vim
+  source $HOME/.config/nvim/plug-config/telescope.vim
+  source $HOME/.config/nvim/plug-config/airline.vim
+  source $HOME/.config/nvim/lua/tree_sitter.vim
+  source $HOME/.config/nvim/lua/telescope.vim
 
   nnoremap <leader>h :wincmd h<CR>
   nnoremap <leader>j :wincmd j<CR>
@@ -132,6 +147,12 @@ if executable('rg')
   nnoremap <silent> <Leader>- :vertical resize -5<CR>
   nnoremap <Leader>p :Files<CR>
   nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+  "telescope
+  nnoremap <leader>ff <cmd>Telescope find_files<cr>
+  nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+  nnoremap <leader>fb <cmd>Telescope buffers<cr>
+  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 
   inoremap <C-l> <C-t> 
@@ -152,3 +173,6 @@ if executable('rg')
   nnoremap <leader>fq :CocCommand flutter.dev.quit<cr>
   nnoremap <leader>fr :CocCommand flutter.dev.hotReload<cr>
   nnoremap <leader>fR :CocCommand flutter.dev.hotRestart<cr>
+
+  "maximizer 
+  nnoremap <leader>m :MaximizerToggle<cr>
