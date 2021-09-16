@@ -1,4 +1,10 @@
 {
   "diagnostic.errorSign": "",
   "diagnostic.warningSign": "",
+  "diagnostic.infoSign" : "",
+  "diagnostic.hintSign" : "",
+  "codeLens.enable": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.virtualTextPrefix": " "
 }

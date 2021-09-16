@@ -22,6 +22,7 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
+Plug 'neovim/nvim-lspconfig'
 Plug 'morhetz/gruvbox' 
 Plug 'flazz/vim-colorschemes'
 Plug 'itchyny/lightline.vim', {'do': { -> coc#util#install() }}
@@ -47,7 +48,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'szw/vim-maximizer'
 
 Plug 'tweekmonster/startuptime.vim'
-
 "javascript html
 "Plug 'pangloss/vim-javascript'
 "Plug 'MaxMEllon/vim-jsx-pretty'
@@ -123,8 +123,6 @@ if executable('rg')
   
   " ultisnips
   let g:UltiSnipsExpandTrigger = '<f5>' 
-  let g:lsc_auto_map = v:true
-  let g:lsc_server_commands = {'dart': 'dart_language_server'}
   "set filetype arduino
   au BufRead,BufNewFile *.pde set filetype=arduino
   au BufRead,BufNewFile *.ino set filetype=arduino
@@ -136,6 +134,7 @@ if executable('rg')
   source $HOME/.config/nvim/plug-config/airline.vim
   source $HOME/.config/nvim/lua/tree_sitter.vim
   source $HOME/.config/nvim/lua/telescope.vim
+  source $HOME/.config/nvim/lua/lsp.vim
 
   nnoremap <leader>h :wincmd h<CR>
   nnoremap <leader>j :wincmd j<CR>
@@ -176,3 +175,9 @@ if executable('rg')
 
   "maximizer 
   nnoremap <leader>m :MaximizerToggle<cr>
+
+  "colors
+  hi link CocErrorSign GruvboxRed
+  hi link CocWarningSign GruvboxOrangeSign
+  hi link CocInfoSign GruvboxYellowSign
+  hi link CocHintSign GruvboxBlueSign

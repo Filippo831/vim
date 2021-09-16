@@ -21,3 +21,4 @@ set noshowmode
 
 " Set the theme
 let g:airline_theme = 'gruvbox'
+
