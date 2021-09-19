@@ -6,5 +6,11 @@
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "diagnostic.virtualTextPrefix": " "
+  "diagnostic.virtualTextPrefix": " ",
+  "explorer.icon.enableNerdfont": true,
+  "python.formatting.provider": "black",
+  "explorer.buffer.showHiddenBuffers": true,
+  "explorer.file.showHiddenFiles": true,
+  "python.jediEnabled":true 
+
 }

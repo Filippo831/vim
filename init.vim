@@ -30,7 +30,7 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'mbbill/undotree'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -86,7 +86,7 @@ call plug#end()
 
 " configuration
 if executable('rg')
-	  let g:rg_derive_root='true'
+    let g:rg_derive_root='true'
   endif
 
   let mapleader = " "
@@ -95,18 +95,18 @@ if executable('rg')
   let g:netrw_banner = 0
   let g:netrw_winsize = 25
 
-  "  color scheme
+  ""  color scheme
   let g:gruvbox_contrast_dark = 'hard'
   colorscheme gruvbox
   set background=dark
   highlight Comment cterm=italic
 
-  "  bottom bar
+  ""  bottom bar
   set laststatus=2
   let g:lightline = {'colorscheme': 'gruvbox',}
    
  
- " html Plug
+ "" html Plug
   let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
   let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*tsx'
   let g:closetag_filetypes = 'html,xhtml,phtml,jsx,javascript,typescript,typescriptreact'
@@ -121,13 +121,16 @@ if executable('rg')
 
   let g:lsc_auto_map = v:true
   
-  " ultisnips
+  "" ultisnips
   let g:UltiSnipsExpandTrigger = '<f5>' 
-  "set filetype arduino
+
+  let g:vimspector_enable_mappings = "HUMAN"
+
+  ""set filetype arduino
   au BufRead,BufNewFile *.pde set filetype=arduino
   au BufRead,BufNewFile *.ino set filetype=arduino
 
-  " --------- Key configuration ----------
+  "" --------- Key configuration ----------
   source $HOME/.config/nvim/plug-config/coc.vim
   source $HOME/.config/nvim/plug-config/airline.vim
   source $HOME/.config/nvim/plug-config/telescope.vim
@@ -147,7 +150,7 @@ if executable('rg')
   nnoremap <Leader>p :Files<CR>
   nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-  "telescope
+  ""telescope
   nnoremap <leader>ff <cmd>Telescope find_files<cr>
   nnoremap <leader>fg <cmd>Telescope live_grep<cr>
   nnoremap <leader>fb <cmd>Telescope buffers<cr>
@@ -157,14 +160,14 @@ if executable('rg')
   inoremap <C-l> <C-t> 
   inoremap <C-h> <C-d> 
 
-  "move lines
+  ""move lines
   nnoremap <A-k> :m .-2<CR>==
   nnoremap <A-j> :m .+1<CR>==
 
-  "copy on clipboard
+  ""copy on clipboard
   noremap <C-c> "+yy"
 
-  "flutter
+  ""flutter
   let g:dart_format_on_save = 0
   xmap <leader>a  <Plug>(coc-codeaction-selected)
   nmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -173,10 +176,10 @@ if executable('rg')
   nnoremap <leader>fr :CocCommand flutter.dev.hotReload<cr>
   nnoremap <leader>fR :CocCommand flutter.dev.hotRestart<cr>
 
-  "maximizer 
+  ""maximizer 
   nnoremap <leader>m :MaximizerToggle<cr>
 
-  "colors
+  ""colors
   hi link CocErrorSign GruvboxRed
   hi link CocWarningSign GruvboxOrangeSign
   hi link CocInfoSign GruvboxYellowSign
