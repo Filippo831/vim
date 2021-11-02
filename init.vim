@@ -45,6 +45,25 @@ Plug 'ryanoasis/vim-devicons'
 " flutter
 Plug 'akinsho/flutter-tools.nvim'
 
+" cmp
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'saadparwaiz1/cmp_luasnip'
+
+" lspsaga
+Plug 'glepnir/lspsaga.nvim'
+
+" snippets
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
+
+" typescript
+Plug 'sublimelsp/LSP-typescript'
+Plug 'windwp/nvim-ts-autotag'
+
+
+
 call plug#end()
 
 
@@ -55,7 +74,6 @@ let ayucolor="dark"
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 colorscheme gruvbox 
-
 
 " --------- Keymaps ----------
 let mapleader = " "
@@ -68,3 +86,16 @@ nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
 
 nnoremap <Leader>fs /
+
+" snippets
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
+snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+
+imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+
+nnoremap <silent><leader>ga <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+vnoremap <silent><leader>ga :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>

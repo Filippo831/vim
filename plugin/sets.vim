@@ -28,3 +28,5 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=grey
 
 set cmdheight=2
+
+set completeopt=menu,menuone,noselect

@@ -29,12 +29,12 @@ local on_attach = function(client, bufnr)
 end
 
 
--- Use a loop to conveniently both setup defined servers
--- and map buffer local keybindings when the language server attaches
-local servers = {"pyright", "clangd", "dartls"}
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup { on_attach = on_attach }
-end
+ --Use a loop to conveniently both setup defined servers
+ --and map buffer local keybindings when the language server attaches
+--local servers = {"pyright", "clangd", "dartls", "tsserver"}
+--for _, lsp in ipairs(servers) do
+  --lspconfig[lsp].setup { on_attach = on_attach }
+--end
 
 -- Formatting
 lspconfig.efm.setup{}
